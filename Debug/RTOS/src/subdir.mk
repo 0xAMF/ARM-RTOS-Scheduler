@@ -5,15 +5,12 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../RTOS/src/kernel.c \
 ../RTOS/src/osmcal.c 
 
 OBJS += \
-./RTOS/src/kernel.o \
 ./RTOS/src/osmcal.o 
 
 C_DEPS += \
-./RTOS/src/kernel.d \
 ./RTOS/src/osmcal.d 
 
 
@@ -24,7 +21,7 @@ RTOS/src/%.o RTOS/src/%.su RTOS/src/%.cyclo: ../RTOS/src/%.c RTOS/src/subdir.mk
 clean: clean-RTOS-2f-src
 
 clean-RTOS-2f-src:
-	-$(RM) ./RTOS/src/kernel.cyclo ./RTOS/src/kernel.d ./RTOS/src/kernel.o ./RTOS/src/kernel.su ./RTOS/src/osmcal.cyclo ./RTOS/src/osmcal.d ./RTOS/src/osmcal.o ./RTOS/src/osmcal.su
+	-$(RM) ./RTOS/src/osmcal.cyclo ./RTOS/src/osmcal.d ./RTOS/src/osmcal.o ./RTOS/src/osmcal.su
 
 .PHONY: clean-RTOS-2f-src
 

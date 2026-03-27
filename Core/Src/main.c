@@ -1,4 +1,5 @@
 #include "../Inc/main.h"
+#include "osmcal.h"
 
 #define DELAY_COUNT_1MS    (1250U)
 #define DELAY_COUNT_500MS  (500U * DELAY_COUNT_1MS)
@@ -63,7 +64,11 @@ int main(void)
 
 	sched_stack_init(SCHED_TASK_STACK);
 
-	task_stack_init();
+	os_task_create(&idle_task_handler);
+	os_task_create(&task1_handler);
+	os_task_create(&task2_handler);
+	os_task_create(&task3_handler);
+	os_task_create(&task4_handler);
 
 	switch_to_psp();
 
@@ -81,27 +86,27 @@ int main(void)
 void task1_handler(void) {
     while(1) {
     	HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_10);
-    	delay(DELAY_COUNT_1S);
+    	task_delay(1000);
     }
 }
 
 void task2_handler(void) {
     while(1) {
     	HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_11);
-    	delay(DELAY_COUNT_500MS);
+    	task_delay(500);
     }
 }
 
 void task3_handler(void) {
     while(1) {
     	HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_12);
-    	delay(DELAY_COUNT_250MS);
+    	task_delay(250);
     }
 }
 
 void task4_handler(void) {
     while(1) {
     	HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_15);
-    	delay(DELAY_COUNT_125MS);
+    	task_delay(125);
     }
 }

@@ -25,20 +25,11 @@
 #include "stm32f4xx_hal.h"
 #include "../../RTOS/inc/osmcal.h"
 
+
 void task1_handler(void);
 void task2_handler(void);
 void task3_handler(void);
 void task4_handler(void);
 
-#define TASK_STACK_SIZE 1024
-#define SRAM_START 0x20000000U
-#define SRAM_SIZE  (128 * 1024)
-#define SRAM_END   (SRAM_START + SRAM_SIZE)
-
-#define T1_STACK_START    (SRAM_END)
-#define T2_STACK_START    ((SRAM_END) - (1 * TASK_STACK_SIZE))
-#define T3_STACK_START    ((SRAM_END) - (2 * TASK_STACK_SIZE))
-#define T4_STACK_START 	  ((SRAM_END) - (3 * TASK_STACK_SIZE))
-#define SCHED_TASK_STACK  ((SRAM_END) - (4 * TASK_STACK_SIZE))
 
 #endif /* __MAIN_H */
