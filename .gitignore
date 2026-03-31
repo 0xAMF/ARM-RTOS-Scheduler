@@ -1,1 +1,25 @@
+# STM32CubeIDE build output
 Debug/
+Release/
+
+# Toolchain artifacts
+*.o
+*.d
+*.su
+*.cyclo
+*.elf
+*.bin
+*.hex
+*.map
+*.list
+*.lst
+*.a
+*.lib
+*.srec
+
+# IDE user-specific launch configs
+*.launch
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
